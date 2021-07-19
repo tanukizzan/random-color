@@ -1,0 +1,73 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+main {
+  margin: 3rem auto;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+main h1 {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.rgb-area {
+  margin: 0 auto 1rem auto;
+}
+
+#submit-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 1rem auto;
+  background-color: #fff;
+  background: linear-gradient(45deg, #E60012, #F39800, #FFF100, #009944, #0068B7, #1D2088, #920783);
+  background-size: 1500% 1500%;
+  animation: gradation 3s ease infinite;
+}
+
+@keyframes gradation {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.rgb-area button {
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+#red-btn {
+  background-color: #ff0000;
+}
+#green-btn {
+  background-color: #00ff00;
+}
+#blue-btn {
+  background-color: #0000ff;
+}
