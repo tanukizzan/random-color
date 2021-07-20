@@ -20,9 +20,17 @@ main {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+main img {
+  width: 30%;
+  max-width: 100px;
+  height: auto;
+}
+
 main h1 {
   padding: 0;
-  margin: 0;
+  margin: 1rem auto;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
 }
 
 button {
@@ -70,4 +78,17 @@ button:hover {
 }
 #blue-btn {
   background-color: #0000ff;
+}
+
+.smp {
+  display: none;
+}
+@media screen and (max-width: 650px) {
+  main h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  .smp {
+    display: block;
+  }
 }
