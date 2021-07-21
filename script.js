@@ -5,19 +5,19 @@ const redBtn = document.getElementById('red-btn');
 const greenBtn = document.getElementById('green-btn');
 const blueBtn = document.getElementById('blue-btn');
 const resultArea = document.getElementById('result-area');
+const tweetBtn = document.getElementById('tweet-btn');
+const link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('#ランダムカラーピッカー で生成しました') + '&url=' + encodeURIComponent('https://app.tanukizzan.com/random-color') + '&hashtags=';
 
 // ランダム色生成
-function mainHex() {
-  let result = '';
-  for (let i = 0; i < 3; ++i) {
-    const n = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
-    result += n;
-  }
-  return result;
-}
 submitBtn.onclick = () => {
-  document.body.style.background = '#' + mainHex();
-  resultArea.innerHTML = '#' + mainHex();
+  const red = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+  const green = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+  const blue = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+  const colorCode = red + green + blue;
+  document.body.style.background = '#' + colorCode;
+  resultArea.innerHTML = '#' + colorCode;
+  const tweetLink = link + colorCode;
+  tweetBtn.setAttribute('href', tweetLink);
 }
 window.onload = () => {
   submitBtn.onclick();
@@ -33,30 +33,44 @@ redBtn.onclick = () => {
   const red = Math.floor(Math.random() * (256 + 1 - 128) + 128).toString(16).padStart(2, '0');
   const green = Math.floor(Math.random() * 128).toString(16).padStart(2, '0');
   const blue = Math.floor(Math.random() * 128).toString(16).padStart(2, '0');
-  let colorCode = '#' + red + green + blue;
-  document.body.style.background = colorCode;
-  resultArea.innerHTML = colorCode;
+  let colorCode = red + green + blue;
+  document.body.style.background = '#' + colorCode;
+  resultArea.innerHTML = '#' + colorCode;
+  let tweetLink = link + colorCode;
+  tweetBtn.setAttribute('href', tweetLink);
 }
 // 緑系色を生成
 greenBtn.onclick = () => {
   const red = Math.floor(Math.random() * 128).toString(16).padStart(2, '0');
   const green = Math.floor(Math.random() * (256 + 1 - 128) + 128).toString(16).padStart(2, '0');
   const blue = Math.floor(Math.random() * 128).toString(16).padStart(2, '0');
-  let colorCode = '#' + red + green + blue;
-  document.body.style.background = colorCode;
-  resultArea.innerHTML = colorCode;
+  let colorCode = red + green + blue;
+  document.body.style.background = '#' + colorCode;
+  resultArea.innerHTML = '#' + colorCode;
+  let tweetLink = link + colorCode;
+  tweetBtn.setAttribute('href', tweetLink);
 }
 // 青系色を生成
 blueBtn.onclick = () => {
   const red = Math.floor(Math.random() * 128).toString(16).padStart(2, '0');
   const green = Math.floor(Math.random() * 128).toString(16).padStart(2, '0');
   const blue = Math.floor(Math.random() * (256 + 1 - 128) + 128).toString(16).padStart(2, '0');
-  let colorCode = '#' + red + green + blue;
-  document.body.style.background = colorCode;
-  resultArea.innerHTML = colorCode;
+  let colorCode = red + green + blue;
+  document.body.style.background = '#' + colorCode;
+  resultArea.innerHTML = '#' + colorCode;
+  let tweetLink = link + colorCode;
+  tweetBtn.setAttribute('href', tweetLink);
 }
 
 /* カラーコードの生成コード
+function mainHex() {
+  let result = '';
+  for (let i = 0; i < 3; ++i) {
+    const n = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+    result += n;
+  }
+  return result;
+}
 submitBtn.onclick = () => {
   function hex(n) {
     let result = '';
