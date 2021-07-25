@@ -13,10 +13,10 @@ body {
 
 main {
   margin: 3rem auto;
-  background-color: #fff;
+  background: #fff;
   border-radius: 10px;
   text-align: center;
-  padding: 30px;
+  padding: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -45,17 +45,13 @@ button:hover, #tweet-btn:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.rgb-area {
-  margin: 0 auto 1rem auto;
-}
-
 #submit-btn {
   font-size: 1.2rem;
   font-weight: bold;
   padding: 10px 20px;
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
   background-color: #fff;
-  background: linear-gradient(45deg, #E60012, #F39800, #FFF100, #009944, #0068B7, #1D2088, #920783);
+  background: linear-gradient(45deg, #E60012 12.5%, #F39800 25%, #FFF100 37.5%, #009944 50%, #0068B7 62.5%, #1D2088 75%, #920783 87.5%);
   background-size: 1500% 1500%;
   animation: gradation 3s ease infinite;
 }
@@ -66,36 +62,34 @@ button:hover, #tweet-btn:hover {
   100% {background-position: 0% 50%;}
 }
 
-.rgb-area button {
-  padding: 5px 10px;
-  margin: 0 5px;
-}
-#red-btn {
-  background-color: #ff0000;
-}
-#green-btn {
-  background-color: #00ff00;
-}
-#blue-btn {
-  background-color: #0000ff;
+.rgb-area {
+  margin: 0.5rem auto 1rem auto;
 }
 
-.smp {
-  display: none;
+.rgb-area button {
+  margin-top: 0.5rem;
+  padding: 5px 10px;
+  margin-top: 0.5rem;
 }
-@media screen and (max-width: 650px) {
-  main h1 {
-    font-size: 2rem;
-    line-height: 2rem;
-  }
-  .smp {
-    display: block;
-  }
+.rgb-area #red-btn {
+  border-radius: 8px 0 0 8px;
+  background: #ff0000;
+}
+.rgb-area #green-btn {
+  border-radius: 0;
+  background: #00ff00;
+}
+.rgb-area #blue-btn {
+  border-radius: 0 8px 8px 0;
+  background: #0000ff;
+}
+.rgb-area #monotone {
+  background: #000000;
 }
 
 #tweet-btn {
   display: inline-block;
-  background-color: #1da1f2;
+  background: #1da1f2;
   padding: 5px 10px;
   margin: 1rem auto;
   text-decoration: none;
@@ -104,11 +98,21 @@ button:hover, #tweet-btn:hover {
 .footer {
   display: flex;
   justify-content: space-around;
-  margin: 0 auto;
+  margin: 1rem auto 0 auto;
 }
 .footer a {
   text-decoration: none;
 }
 .footer a:hover {
   text-decoration: underline;
+}
+
+.smp {display: none;}
+
+@media screen and (max-width: 650px) {
+  main h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  .smp {display: block;}
 }
