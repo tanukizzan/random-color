@@ -6,6 +6,7 @@ const greenBtn = document.getElementById('green-btn');
 const blueBtn = document.getElementById('blue-btn');
 const monotone = document.getElementById('monotone');
 const resultArea = document.getElementById('result-area');
+const colorPicker = document.getElementById('color-picker');
 const tweetBtn = document.getElementById('tweet-btn');
 const tweetColor = document.getElementById('tweet-color');
 const link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('#ランダムカラーピッカー で生成しました') + '&url=' + encodeURIComponent('https://app.tanukizzan.com/random-color') + '&hashtags=';
@@ -63,6 +64,12 @@ monotone.onclick = () => {
   output(colorCode);
 }
 
+// カラーピッカー
+colorPicker.addEventListener('change', () => {
+  const colorCode = colorPicker.value.slice(1);
+  output(colorCode);
+})
+
 // 生成したカラーコードをHTMLに出力
 const output = (colorCode) => {
   document.body.style.background = '#' + colorCode;
@@ -70,4 +77,5 @@ const output = (colorCode) => {
   const tweetLink = link + colorCode;
   tweetBtn.setAttribute('href', tweetLink);
   tweetColor.innerText = '#' + colorCode;
+  colorPicker.value = '#' + colorCode;
 }
