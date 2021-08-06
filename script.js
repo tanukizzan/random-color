@@ -9,7 +9,6 @@ const resultArea = document.getElementById('result-area');
 const colorPicker = document.getElementById('color-picker');
 const tweetBtn = document.getElementById('tweet-btn');
 const tweetColor = document.getElementById('tweet-color');
-const link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('#ランダムカラーピッカー で生成しました') + '&url=' + encodeURIComponent('https://app.tanukizzan.com/random-color') + '&hashtags=';
 
 // ランダム色生成
 submitBtn.onclick = () => {
@@ -24,9 +23,16 @@ submitBtn.onclick = () => {
   const colorCode = mainHex();
   output(colorCode);
 }
+// サイト読み込み時にもランダム色生成
 window.onload = () => {
-  submitBtn.onclick();
+  if (window.location.search.length > 0) {
+    const colorCode = window.location.search.slice(1);
+    output(colorCode);
+  } else {
+    submitBtn.onclick();
+  }
 }
+// Enterキーでもランダム色生成
 document.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     submitBtn.onclick();
@@ -74,7 +80,7 @@ colorPicker.addEventListener('change', () => {
 const output = (colorCode) => {
   document.body.style.background = '#' + colorCode;
   resultArea.innerHTML = '#' + colorCode;
-  const tweetLink = link + colorCode;
+  const tweetLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('#ランダムカラーピッカー で生成しました') + '&url=' + encodeURIComponent('https://app.tanukizzan.com/random-color?' + colorCode) + '&hashtags=' + colorCode;
   tweetBtn.setAttribute('href', tweetLink);
   tweetColor.innerText = '#' + colorCode;
   colorPicker.value = '#' + colorCode;
